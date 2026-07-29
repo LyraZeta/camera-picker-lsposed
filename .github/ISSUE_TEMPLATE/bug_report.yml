@@ -1,0 +1,82 @@
+name: Bug report
+description: Report an interception, picker, URI, or compatibility problem.
+title: "[Bug] "
+labels:
+  - bug
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Test with Camera Intent Probe first. Browser `capture` behavior alone cannot prove whether the native Intent hook ran.
+
+  - type: input
+    id: android
+    attributes:
+      label: Android version and ROM
+      placeholder: Android 14, HyperOS 1.0
+    validations:
+      required: true
+
+  - type: input
+    id: lsposed
+    attributes:
+      label: LSPosed version
+      placeholder: Version and framework variant
+    validations:
+      required: true
+
+  - type: input
+    id: target
+    attributes:
+      label: Target package and version
+      placeholder: com.example.app 1.2.3
+    validations:
+      required: true
+
+  - type: dropdown
+    id: probe
+    attributes:
+      label: Camera Intent Probe result
+      options:
+        - Module disabled opens the real camera; enabled opens the picker and returns an image
+        - Probe is also broken
+        - Probe was not tested
+    validations:
+      required: true
+
+  - type: dropdown
+    id: capture-path
+    attributes:
+      label: Known capture path
+      options:
+        - ACTION_IMAGE_CAPTURE with EXTRA_OUTPUT
+        - ACTION_IMAGE_CAPTURE without EXTRA_OUTPUT
+        - ACTION_IMAGE_CAPTURE_SECURE
+        - ACTION_CHOOSER wrapping a capture Intent
+        - Camera1, Camera2, CameraX, WebRTC, or custom SDK
+        - Unknown
+    validations:
+      required: true
+
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      placeholder: Describe the LSPosed scope, target action, picker result, and observed behavior.
+    validations:
+      required: true
+
+  - type: textarea
+    id: logs
+    attributes:
+      label: Relevant logs
+      description: Remove private URI contents and application data before posting.
+      render: text
+
+  - type: checkboxes
+    id: authorization
+    attributes:
+      label: Authorization
+      options:
+        - label: I am testing a device and application I own or am authorized to assess.
+          required: true

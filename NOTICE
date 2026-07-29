@@ -1,0 +1,10 @@
+Camera Picker for LSPosed
+Copyright 2026 Camera Picker contributors
+
+This product includes compile-only XposedBridge API stubs.
+Copyright 2013 rovo89, Tungstwenty
+Licensed under the Apache License, Version 2.0.
+
+The XposedBridge upstream notice also attributes software developed by
+The Apache Software Foundation. See THIRD_PARTY_NOTICES.md for source links
+and the complete attribution context.

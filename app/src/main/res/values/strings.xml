@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Camera Picker for LSPosed</string>
+    <string name="screen_title">Camera Picker</string>
+    <string name="description">When a scoped app asks Android to take a photo, this module opens the system photo picker and returns the selected image as the camera result.</string>
+    <string name="scope_hint">Enable this module for each target app in LSPosed. Do not enable System Framework for the first test.</string>
+    <string name="test_button">Test photo picker</string>
+    <string name="test_result">Selected URI: %1$s</string>
+    <string name="picker_title">Choose a photo</string>
+    <string name="picker_processing">Preparing the selected photo&#8230;</string>
+    <string name="picker_failed">The selected photo could not be returned.</string>
+    <string name="picker_cancelled">No photo was selected.</string>
+</resources>

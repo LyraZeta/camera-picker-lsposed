@@ -1,0 +1,38 @@
+plugins {
+    id "com.android.application"
+}
+
+android {
+    namespace "com.lyra.camerapicker"
+    compileSdk 35
+
+    defaultConfig {
+        applicationId "com.lyra.camerapicker"
+        minSdk 23
+        targetSdk 35
+        versionCode 1
+        versionName "0.1.0"
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro"
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildFeatures {
+        buildConfig true
+    }
+}
+
+dependencies {
+    // Xposed API 82 is kept as a compile-only local jar. It is supplied by
+    // the LSPosed/Xposed runtime and must not be packaged into the APK.
+    compileOnly files("libs/api-82.jar")
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Camera Intent Probe</string>
+    <string name="screen_title">Native camera Intent probe</string>
+    <string name="description">This app sends ACTION_IMAGE_CAPTURE with EXTRA_OUTPUT. Without the module, the real camera should open. With the module enabled for this app, the system document picker should open instead.</string>
+    <string name="capture_button">Send ACTION_IMAGE_CAPTURE</string>
+    <string name="clear_button">Clear result</string>
+    <string name="ready_status">Ready. No camera Intent has been sent yet.</string>
+    <string name="starting_status">Sending ACTION_IMAGE_CAPTURE&#8230;</string>
+    <string name="camera_unavailable">No camera app can handle ACTION_IMAGE_CAPTURE.</string>
+    <string name="permission_required">Storage permission is required on this Android version.</string>
+    <string name="permission_denied">Storage permission was denied; the probe cannot create its output URI.</string>
+    <string name="cancelled_status">The camera or replacement picker was cancelled.</string>
+    <string name="result_loading">RESULT_OK received. Loading the EXTRA_OUTPUT image&#8230;</string>
+    <string name="result_status">RESULT_OK received through EXTRA_OUTPUT.
+Output URI: %1$s
+File size: %2$s</string>
+    <string name="result_empty">RESULT_OK was returned, but the EXTRA_OUTPUT URI is empty.</string>
+    <string name="launch_failed">Could not launch ACTION_IMAGE_CAPTURE: %1$s</string>
+    <string name="image_unreadable">The output exists, but it could not be decoded as an image.</string>
+    <string name="size_unknown">unknown</string>
+</resources>

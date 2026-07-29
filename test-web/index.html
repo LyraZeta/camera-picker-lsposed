@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#f7f8fa">
+    <title>Camera Capture Lab</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="app.js" defer></script>
+</head>
+<body>
+    <header class="topbar">
+        <div>
+            <p class="eyebrow">BROWSER COMPATIBILITY TEST</p>
+            <h1>Browser Camera Input Lab</h1>
+        </div>
+        <div class="runtime" aria-label="运行环境">
+            <span id="protocol-status">--</span>
+            <span id="security-status">--</span>
+        </div>
+    </header>
+
+    <main class="workspace">
+        <aside class="probe-notice" aria-label="Native test note">
+            <strong>Browser limitation</strong>
+            <span>The controls below test browser file inputs only. The <code>capture</code> attribute is a hint, so a browser may offer the gallery even without LSPosed. For a deterministic Android test, install and use the separate <b>Camera Intent Probe</b> app.</span>
+        </aside>
+
+        <section class="controls" aria-labelledby="capture-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="section-index">01</p>
+                    <h2 id="capture-heading">拍照入口</h2>
+                </div>
+                <button id="clear-button" class="quiet-button" type="button">清空结果</button>
+            </div>
+
+            <div class="test-list">
+                <article class="test-item test-item-blue">
+                    <div class="test-number">A</div>
+                    <div class="test-copy">
+                        <h3>后置相机</h3>
+                        <code>capture="environment"</code>
+                    </div>
+                    <label class="command-button" for="rear-camera-input">触发拍照</label>
+                    <input
+                        id="rear-camera-input"
+                        class="file-input"
+                        type="file"
+                        accept="image/*"
+                        capture="environment"
+                        data-mode="后置相机">
+                </article>
+
+                <article class="test-item test-item-coral">
+                    <div class="test-number">B</div>
+                    <div class="test-copy">
+                        <h3>前置相机</h3>
+                        <code>capture="user"</code>
+                    </div>
+                    <label class="command-button" for="front-camera-input">触发拍照</label>
+                    <input
+                        id="front-camera-input"
+                        class="file-input"
+                        type="file"
+                        accept="image/*"
+                        capture="user"
+                        data-mode="前置相机">
+                </article>
+
+                <article class="test-item test-item-green">
+                    <div class="test-number">C</div>
+                    <div class="test-copy">
+                        <h3>普通图片选择</h3>
+                        <code>accept="image/*"</code>
+                    </div>
+                    <label class="command-button" for="gallery-input">选择图片</label>
+                    <input
+                        id="gallery-input"
+                        class="file-input"
+                        type="file"
+                        accept="image/*"
+                        data-mode="普通图片选择">
+                </article>
+            </div>
+
+            <div class="environment-panel">
+                <dl>
+                    <div>
+                        <dt>页面地址</dt>
+                        <dd id="page-url">--</dd>
+                    </div>
+                    <div>
+                        <dt>浏览器</dt>
+                        <dd id="browser-name">--</dd>
+                    </div>
+                </dl>
+            </div>
+        </section>
+
+        <section class="result" aria-labelledby="result-heading">
+            <div class="section-heading">
+                <div>
+                    <p class="section-index">02</p>
+                    <h2 id="result-heading">返回结果</h2>
+                </div>
+                <span id="result-state" class="result-state">等待触发</span>
+            </div>
+
+            <div class="preview-stage" id="preview-stage">
+                <canvas id="test-target" width="1200" height="900" aria-label="测试样张"></canvas>
+                <img id="image-preview" alt="浏览器返回的图片预览">
+            </div>
+
+            <div class="target-actions">
+                <button id="regenerate-target" class="quiet-button" type="button">重新生成样张</button>
+                <button id="download-target" class="command-button" type="button">下载测试样张</button>
+            </div>
+
+            <dl class="metadata" id="metadata">
+                <div>
+                    <dt>入口</dt>
+                    <dd id="meta-mode">--</dd>
+                </div>
+                <div>
+                    <dt>文件名</dt>
+                    <dd id="meta-name">--</dd>
+                </div>
+                <div>
+                    <dt>媒体类型</dt>
+                    <dd id="meta-type">--</dd>
+                </div>
+                <div>
+                    <dt>文件大小</dt>
+                    <dd id="meta-size">--</dd>
+                </div>
+                <div>
+                    <dt>图像尺寸</dt>
+                    <dd id="meta-dimensions">--</dd>
+                </div>
+                <div>
+                    <dt>修改时间</dt>
+                    <dd id="meta-modified">--</dd>
+                </div>
+                <div class="metadata-wide">
+                    <dt>SHA-256</dt>
+                    <dd id="meta-hash">--</dd>
+                </div>
+            </dl>
+
+            <div class="event-log" aria-live="polite">
+                <div class="event-log-heading">
+                    <h3>事件日志</h3>
+                    <span id="event-count">0</span>
+                </div>
+                <ol id="event-list"></ol>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

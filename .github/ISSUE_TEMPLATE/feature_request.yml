@@ -1,0 +1,50 @@
+name: Feature request
+description: Propose a supported capture path or compatibility improvement.
+title: "[Feature] "
+labels:
+  - enhancement
+body:
+  - type: textarea
+    id: use-case
+    attributes:
+      label: Use case
+      description: Explain the authorized learning, development, accessibility, or testing scenario.
+    validations:
+      required: true
+
+  - type: dropdown
+    id: layer
+    attributes:
+      label: Technical layer
+      options:
+        - Intent replacement
+        - URI and result compatibility
+        - Camera Intent Probe
+        - Browser compatibility page
+        - Camera1, Camera2, CameraX, or ImageReader
+        - Documentation or build tooling
+        - Unknown
+    validations:
+      required: true
+
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Proposed behavior
+      placeholder: Describe the current behavior, desired behavior, and a way to verify it.
+    validations:
+      required: true
+
+  - type: textarea
+    id: references
+    attributes:
+      label: References
+      description: Link Android documentation, sample code, or an open-source implementation when available.
+
+  - type: checkboxes
+    id: authorization
+    attributes:
+      label: Authorization
+      options:
+        - label: This request is for devices and applications I own or am authorized to test.
+          required: true
